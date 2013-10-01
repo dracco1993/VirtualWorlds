@@ -1,12 +1,17 @@
 #pragma strict
+//Container variables
+public var playerCamera:Camera;
 
-var shipSpeed:float = 0.05;
-var playerCamera:Camera;
+//Settings vars
+private var shipSpeed:float = 0.05;
+private var shipFSpeed:float = 0.05;
 
 function Start () {
 }
 
 function FixedUpdate () {
+	
+	//CHANGE BACK TO THE "GetAxis" INPUT TO GET THE "floating" EFFECT
 
 	//Get horizontal input
 	var horizontalInput : float = Input.GetAxisRaw("Horizontal");
@@ -27,4 +32,6 @@ function FixedUpdate () {
 		//DOWN
 		transform.position.y -= shipSpeed;
 	}
+	
+	transform.position.z += shipFSpeed;
 }

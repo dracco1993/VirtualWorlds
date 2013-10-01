@@ -1,7 +1,7 @@
 #pragma strict
 public var enemyPrefab:GameObject;
 
-private var spawnRate:int = 20;
+internal var spawnRate:int;
 private var currentSpawn:int = 0;
 public var isActive:boolean = false;
 
@@ -9,7 +9,7 @@ function Start () {
 
 }
 
-function Update () {
+function FixedUpdate () {
 	if(isActive){
 		currentSpawn = currentSpawn % spawnRate;
 		if(currentSpawn == 0){
@@ -29,4 +29,5 @@ function SpawnEnemy () {
 	//Debug.Log(spawnArea);
 		
     var tempEnemy:GameObject = Instantiate(enemyPrefab, Vector3(spawnArea.x,spawnArea.y,transform.position.z), transform.rotation);
+    tempEnemy.transform.parent = transform;
 }
