@@ -6,7 +6,7 @@ private var currentSpawn:int = 0;
 public var isActive:boolean = false;
 
 function Start () {
-
+	SpawnEnemy();
 }
 
 function FixedUpdate () {
